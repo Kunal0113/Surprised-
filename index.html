@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>For Harsha ❤️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@400;500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=5">
+</head>
+<body>
+
+<canvas id="fx-canvas" style="position:fixed;inset:0;z-index:1;pointer-events:none;"></canvas>
+<div class="vignette"></div>
+<div id="bg-stars"></div>
+<div id="music-toggle" title="music">🔈</div>
+<div id="moon-egg" title="🌙">🌙</div>
+
+<div id="blackout">
+  <div class="ag-text" id="ag-text">Access Granted</div>
+</div>
+
+<div class="progress-dots" id="progress-dots" style="display:none;"></div>
+
+<div id="buddy-wrap" style="display:none;">
+  <div id="buddy-avatar">🤖</div>
+  <div id="buddy-bubble"><span id="buddy-text"></span><span class="cursor" id="buddy-cursor"></span></div>
+</div>
+
+<!-- SCENE: LOCK / COUNTDOWN -->
+<section class="scene active" id="scene-lock">
+  <div class="glow-card">
+    <div class="eyebrow">Chapter 1</div>
+    <h2 id="lock-line1">Something special is waiting for someone special...</h2>
+    <div class="bilingual" id="lock-line2" style="opacity:0;">But every surprise has its own perfect time.</div>
+    <div id="countdown-wrap" style="opacity:0; margin-top:18px;">
+      <div class="count-units" id="countdown-tap-zone">
+        <div class="count-unit"><span class="num" id="cd-days">00</span><span class="label">days</span></div>
+        <div class="count-unit"><span class="num" id="cd-hours">00</span><span class="label">hrs</span></div>
+        <div class="count-unit"><span class="num" id="cd-mins">00</span><span class="label">min</span></div>
+        <div class="count-unit"><span class="num" id="cd-secs">00</span><span class="label">sec</span></div>
+      </div>
+      <div class="bilingual" style="margin-top:14px;">until something opens just for you</div>
+    </div>
+  </div>
+</section>
+
+<!-- SCENE: UNLOCK SEQUENCE -->
+<section class="scene" id="scene-unlock">
+  <div class="scanner-avatar small">
+    <div class="radar-ring r1"></div>
+    <div class="radar-ring r2"></div>
+    <div class="radar-ring r3"></div>
+    <div class="scanner-core">🔓</div>
+  </div>
+  <div class="glow-card checklist terminal-list" id="unlock-list"></div>
+</section>
+
+<!-- SCENE: REVEAL -->
+<section class="scene" id="scene-reveal">
+  <div class="reveal-hero">
+    <div class="reveal-burst b1"></div>
+    <div class="reveal-burst b2"></div>
+    <div class="reveal-burst b3"></div>
+    <h1 class="reveal-title shimmer-text">Happy Birthday</h1>
+    <h2 class="reveal-name">Harsha ❤️</h2>
+  </div>
+  <div class="glow-card" style="margin-top:6px;">
+    <p class="hand" id="reveal-quote" style="font-size:1.4rem; min-height:2.6em;"></p>
+    <p class="bilingual">आजचा दिवस खूप खास आहे. 🎉</p>
+  </div>
+  <button class="next-btn" onclick="goNext()">next surprise →</button>
+</section>
+
+<!-- SCENE: TIMELINE -->
+<section class="scene" id="scene-timeline">
+  <div class="eyebrow">our story so far</div>
+  <div class="timeline" id="timeline">
+    <div class="timeline-line"><div class="timeline-line-fill" id="tl-fill"></div></div>
+    <div class="tl-node"><div class="tl-dot">🏫</div><div class="tl-card">We met in college 2 years ago.</div></div>
+    <div class="tl-node"><div class="tl-dot">💬</div><div class="tl-card">But we really became best friends only few months ago .</div></div>
+    <div class="tl-node"><div class="tl-dot">🌱</div><div class="tl-card">Funny how few months can feel more meaningful than Ten years.<br><span class="bilingual">काही महिने हे दहा वर्षांपेक्षाही अधिक अर्थपूर्ण वाटू शकतात.</span></div></div>
+    <div class="tl-node"><div class="tl-dot">📍</div><div class="tl-card">And somehow, still going. <span class="bilingual">अजूनही चालू आहे. 😄</span></div></div>
+  </div>
+  <button class="next-btn" onclick="goNext()">next surprise →</button>
+</section>
+
+<!-- SCENE: SCANNER -->
+<section class="scene" id="scene-scanner">
+  <div class="eyebrow">Personality Scanner </div>
+  <div class="scanner-avatar">
+    <div class="radar-ring r1"></div>
+    <div class="radar-ring r2"></div>
+    <div class="radar-ring r3"></div>
+    <div class="scanner-core">🔍</div>
+  </div>
+  <div id="scan-rows"></div>
+  <div class="scan-verdict" id="scan-verdict"></div>
+  <button class="next-btn" onclick="goNext()" style="display:none;" id="scan-next">next surprise →</button>
+</section>
+
+<!-- SCENE: ACHIEVEMENTS -->
+<section class="scene" id="scene-achievements">
+  <div class="eyebrow">Achievement Room</div>
+  <div class="ach-progress"><div class="ach-progress-fill" id="ach-progress-fill"></div></div>
+  <div class="ach-counter" id="ach-counter">0 / 6 unlocked</div>
+  <div class="ach-grid" id="ach-grid"></div>
+  <button class="next-btn" onclick="goNext()">next surprise →</button>
+</section>
+
+<!-- SCENE: FAKE CHAT -->
+<section class="scene" id="scene-chat">
+  <div class="eyebrow">a very official conversation</div>
+  <div class="chat-app">
+    <div class="chat-header"><span class="chat-dot"></span>Birthday Planning Committee<span class="chat-header-sub">2 members</span></div>
+    <div class="chat-wrap" id="chat-wrap"></div>
+  </div>
+  <button class="next-btn" onclick="goNext()" style="display:none;" id="chat-next">next surprise →</button>
+</section>
+
+<!-- SCENE: GIFT -->
+<section class="scene" id="scene-gift">
+  <div class="eyebrow">Gift Room</div>
+  <p id="gift-buddy-line">I've been holding onto this one for a while. Take your time with it.</p>
+  <div class="gift-zone" id="gift-zone">
+    <div class="gift-box" id="gift-box">🎁</div>
+  </div>
+  <div class="gift-hint" id="gift-hint">tap it</div>
+</section>
+
+<!-- SCENE: LETTER -->
+<section class="scene" id="scene-letter">
+  <div class="letter-paper" id="letter-paper"></div>
+  <button class="next-btn" onclick="goNext()" style="display:none;" id="letter-next">next surprise →</button>
+</section>
+
+<!-- SCENE: STAR ROOM -->
+<section class="scene" id="scene-stars">
+  <div class="eyebrow">Star Room</div>
+  <div class="star-frame">
+    <canvas id="star-canvas" width="640" height="340"></canvas>
+  </div>
+  <p class="star-caption" id="star-caption"></p>
+  <button class="next-btn" onclick="goNext()" style="display:none;" id="stars-next">next surprise →</button>
+</section>
+
+<!-- SCENE: MEMORY WALL -->
+<section class="scene" id="scene-wall">
+  <div class="eyebrow">Digital Memory Wall</div>
+  <p class="wall-intro">no photos together yet — so here are the memories, in words.</p>
+  <div class="wall-grid" id="wall-grid"></div>
+  <button class="next-btn" onclick="goNext()">next surprise →</button>
+</section>
+
+<!-- SCENE: FINAL -->
+<section class="scene" id="scene-final">
+  <div class="final-glow"></div>
+  <div class="final-hearts" id="final-hearts"></div>
+  <div id="final-lines"></div>
+  <div class="sign" id="final-sign" style="opacity:0;">With so much love,<br>— Kunal <span class="pulse-heart">❤️</span></div>
+</section>
+
+<script src="js/script.js?v=5"></script>
+</body>
+</html>
