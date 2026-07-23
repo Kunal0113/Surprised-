@@ -582,118 +582,67 @@ function tapGiftReal(){
    speaks once, softly, right after — this part isn't supposed to be
    a joke. */
 async function runLetter(){
-  const text = `${HER_NAME},
-
+  const text = `Dear ${HER_NAME},
 Happy Birthday! 🎉❤️
-
 First of all...
-
 I hope you're smiling right now.
-
 If you're not...
-
 then mission failed already. 😂
 
 I was thinking about what gift I could give you.
-
 A chocolate? It'll finish in a day.
-
 A teddy? It'll just sit in a corner.
-
 So I thought...
-
 Why not build something that's made only for you?
-
 And that's how this whole little website happened.
 
 It's funny, isn't it?
-
 We've actually known each other for around two years...
-
 but somehow our real friendship only started a couple of months ago.
-
 Life is weird like that.
-
 Sometimes the best friendships don't begin on day one.
-
 They just happen at the right time.
 
 One thing I've noticed about you...
-
 You're one of the sweetest people I've met.
-
 You care about people.
-
 Sometimes... maybe a little too much. 😅
-
 You even take tension for things that aren't yours.
-
 And yes...
-
 you also have an incredible talent for misunderstanding what I say.
-
 I don't know how you do it...
-
 but somehow you always manage. 😂
-
 And let's not forget one very important fact...
-
 Everyone is apparently scared of you.
-
 At least that's what I keep saying. 😭
-
 I still don't know if it's true...
-
 but teasing you about it is way too much fun.
-
 Now, jokes aside...
 
 There's something I genuinely want to tell you.
-
 I really hope this year brings you lots of happiness.
-
 Not just today.
-
 Not just this year.
-
 But throughout your life.
-
 I hope you get everything you've been quietly wishing for.
-
 I hope you smile more than you overthink.
-
 I hope difficult days become easier.
-
 And I hope you always have people around you who remind you how valuable you are.
-
 Thank you for being such a kind and sweet friend.
-
 Even if we don't talk much in college...
-
 our chats have made this friendship really special.
-
 I'm glad we became friends.
 
 Now...
-
 khup emotional houn gel 🤧.
-
 Go eat cake 🎂.
-
 Aani mala visru nko, mala pan lagel cake .
-
 (Yes, that's a legal requirement. 🍰😂)
-
 Once again...
-
 Happy Birthday, Harsha.
-
 Keep smiling.
-
 Keep being the wonderfully chaotic, calm, sweet person that you are.
-
 The world genuinely needs more people like you.
-
 ❤️
 
 From the guy who spent days building an entire website...
